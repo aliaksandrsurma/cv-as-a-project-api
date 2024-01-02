@@ -1,13 +1,24 @@
 package com.asurma.cvasap.api.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.asurma.cvasap.api.model.Project;
+import com.asurma.cvasap.api.model.ProjectsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/project")
+import java.util.stream.Collectors;
+
+@Controller
+@RequestMapping("/projects")
 public class ProjectEndpointController {
 
+    @Autowired
+    private ProjectsRepository repository;
+
+    @GetMapping(params = "all")
+    public @ResponseBody Iterable<Project> getProjects(@RequestParam("all") String all) {
+        return repository.findAll();
+    }
     @GetMapping("/hello")
     public String getHello() {
         return "This is a first endpoint. DELETE ME";
