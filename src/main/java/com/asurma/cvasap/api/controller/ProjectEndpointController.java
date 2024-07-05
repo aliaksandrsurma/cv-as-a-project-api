@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/projects")
@@ -18,10 +17,6 @@ public class ProjectEndpointController {
     @GetMapping(params = "all")
     public @ResponseBody Iterable<Project> getProjects(@RequestParam("all") String all) {
         return repository.findAll();
-    }
-    @GetMapping("/hello")
-    public String getHello() {
-        return "This is a first endpoint. DELETE ME";
     }
 
 }
