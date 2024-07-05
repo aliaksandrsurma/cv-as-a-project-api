@@ -33,4 +33,5 @@ VALUES
 INSERT INTO technologies_or_tools (project_id, technology_or_tool)
 VALUES
     ((SELECT id FROM projects WHERE title = 'Adidas Payment Services'), 'PlantUML'),
+    ((SELECT id FROM projects WHERE title = 'Adidas Payment Services'), 'OpenAPI'),
     ((SELECT id FROM projects WHERE title = 'Adidas Payment Services'), 'Gliffy');
